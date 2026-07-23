@@ -20,4 +20,13 @@ export default class TodosController {
 
     return serialize(TodoTransformer.transform(todos))
   }
+
+  async show ({ auth, params, serialize }: HttpContext) {
+    const user = auth.getUserOrFail()
+
+    const todo = await user.related('todos').query().where('id', params.id).firstOrFail()
+
+    return serialize(TodoTransformer.transform(todo))
+  }
+
 }

@@ -20,5 +20,5 @@ export default class User extends compose(UserSchema, withAuthFinder(hash)) {
   }
 
   @hasMany(() => Todo)
-  declare users: HasMany<typeof Todo>
+  declare todos: HasMany<typeof Todo>
 }

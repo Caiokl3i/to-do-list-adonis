@@ -1,5 +1,5 @@
 import TodoTransformer from '#transformers/todo_transformer'
-import { createTodoValidator } from '#validators/todo'
+import { createTodoValidator, updateTodoValidator } from '#validators/todo'
 import type { HttpContext } from '@adonisjs/core/http'
 
 export default class TodosController {
@@ -29,4 +29,16 @@ export default class TodosController {
     return serialize(TodoTransformer.transform(todo))
   }
 
+  async update({ auth, params, request, serialize }: HttpContext) {
+    const data = await request.validateUsing(updateTodoValidator)
+    
+    const user = auth.getUserOrFail()
+
+    const todo = await user.related('todos').query().where('id', params.id).firstOrFail()
+
+    todo.merge(data)
+    await todo.save()
+
+    return serialize(TodoTransformer.transform(todo))
+  }
 }

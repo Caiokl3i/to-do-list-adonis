@@ -31,7 +31,7 @@ export default class TodosController {
 
   async update({ auth, params, request, serialize }: HttpContext) {
     const data = await request.validateUsing(updateTodoValidator)
-    
+
     const user = auth.getUserOrFail()
 
     const todo = await user.related('todos').query().where('id', params.id).firstOrFail()
@@ -40,5 +40,14 @@ export default class TodosController {
     await todo.save()
 
     return serialize(TodoTransformer.transform(todo))
+  }
+
+  async destroy({ auth, params }: HttpContext) {
+    const user = auth.getUserOrFail()
+
+    const todo = await user.related('todos').query().where('id', params.id).firstOrFail()
+
+    await todo.delete()
+    return { message: 'Todo deleted successfully' }
   }
 }

@@ -2,9 +2,9 @@
 
 Projeto de estudo para aprender a criar uma **API REST com AdonisJS**: autenticação com access tokens, validação, models Lucid, transformers e um CRUD de tarefas com ownership (cada usuário só acessa as próprias todos).
 
-Inclui um frontend React (**Linha**) só para exercitar a integração front ↔ API — o foco do repositório é o backend.
+Inclui um frontend React (**Linha**) só para entendedr a integração front ↔ API — o **foco do repositório é o backend**.
 
-## O que você aprende aqui
+## O que eu aprendi aqui
 
 - Rotas em grupos (`/api/v1`) + middleware `auth`
 - Signup / login / logout com **access tokens** (Bearer)
@@ -14,8 +14,6 @@ Inclui um frontend React (**Linha**) só para exercitar a integração front ↔
 - Transformers para formatar a resposta JSON
 - Migrations (SQLite) e foreign keys
 - Consumir a API com `fetch` + token no frontend
-
-Guia detalhado do aprendizado: [`GUIA-ADONIS.md`](./GUIA-ADONIS.md)
 
 ## Stack
 

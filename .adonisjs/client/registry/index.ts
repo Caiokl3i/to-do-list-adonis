@@ -30,6 +30,36 @@ const routes = {
     tokens: [{"old":"/api/v1/account/logout","type":0,"val":"api","end":""},{"old":"/api/v1/account/logout","type":0,"val":"v1","end":""},{"old":"/api/v1/account/logout","type":0,"val":"account","end":""},{"old":"/api/v1/account/logout","type":0,"val":"logout","end":""}],
     types: placeholder as Registry['profile.access_tokens.destroy']['types'],
   },
+  'todos.todos.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/todos',
+    tokens: [{"old":"/api/v1/todos","type":0,"val":"api","end":""},{"old":"/api/v1/todos","type":0,"val":"v1","end":""},{"old":"/api/v1/todos","type":0,"val":"todos","end":""}],
+    types: placeholder as Registry['todos.todos.index']['types'],
+  },
+  'todos.todos.show': {
+    methods: ["GET","HEAD"],
+    pattern: '/api/v1/todos/:id',
+    tokens: [{"old":"/api/v1/todos/:id","type":0,"val":"api","end":""},{"old":"/api/v1/todos/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/todos/:id","type":0,"val":"todos","end":""},{"old":"/api/v1/todos/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['todos.todos.show']['types'],
+  },
+  'todos.todos.store': {
+    methods: ["POST"],
+    pattern: '/api/v1/todos',
+    tokens: [{"old":"/api/v1/todos","type":0,"val":"api","end":""},{"old":"/api/v1/todos","type":0,"val":"v1","end":""},{"old":"/api/v1/todos","type":0,"val":"todos","end":""}],
+    types: placeholder as Registry['todos.todos.store']['types'],
+  },
+  'todos.todos.update': {
+    methods: ["PUT"],
+    pattern: '/api/v1/todos/:id',
+    tokens: [{"old":"/api/v1/todos/:id","type":0,"val":"api","end":""},{"old":"/api/v1/todos/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/todos/:id","type":0,"val":"todos","end":""},{"old":"/api/v1/todos/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['todos.todos.update']['types'],
+  },
+  'todos.todos.destroy': {
+    methods: ["DELETE"],
+    pattern: '/api/v1/todos/:id',
+    tokens: [{"old":"/api/v1/todos/:id","type":0,"val":"api","end":""},{"old":"/api/v1/todos/:id","type":0,"val":"v1","end":""},{"old":"/api/v1/todos/:id","type":0,"val":"todos","end":""},{"old":"/api/v1/todos/:id","type":1,"val":"id","end":""}],
+    types: placeholder as Registry['todos.todos.destroy']['types'],
+  },
 } as const satisfies Record<string, AdonisEndpoint>
 
 export { routes }

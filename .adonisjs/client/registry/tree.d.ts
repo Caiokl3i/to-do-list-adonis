@@ -18,4 +18,13 @@ export interface ApiDefinition {
       destroy: typeof routes['profile.access_tokens.destroy']
     }
   }
+  todos: {
+    todos: {
+      index: typeof routes['todos.todos.index']
+      show: typeof routes['todos.todos.show']
+      store: typeof routes['todos.todos.store']
+      update: typeof routes['todos.todos.update']
+      destroy: typeof routes['todos.todos.destroy']
+    }
+  }
 }
